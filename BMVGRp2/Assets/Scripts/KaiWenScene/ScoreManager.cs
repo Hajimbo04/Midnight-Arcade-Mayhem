@@ -2,18 +2,21 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
-    private int totalScore = 0;
+    public static ScoreManager Instance { get; private set; }
+
+    public int CurrentScore { get; private set; } = 0;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+            Instance = this;
     }
 
-    public void AddScore(int amount)
+    public void AddScore(int value)
     {
-        totalScore += amount;
-        Debug.Log("Score: " + totalScore);
+        CurrentScore += value;
+        GameUIController.Instance?.UpdateScore(CurrentScore);
     }
 }
