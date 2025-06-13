@@ -72,7 +72,7 @@
                     "name": "Primary 2D Axis Click",
                     "type": "Button",
                     "id": "22416e35-4897-43a8-b712-74381678af80",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
