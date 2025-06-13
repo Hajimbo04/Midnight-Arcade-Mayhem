@@ -29,10 +29,25 @@ public class BallRespawn : MonoBehaviour
     void Respawn()
     {
         Debug.Log("Respawning!");
+
+        // Temporarily disable grab interaction to avoid conflicts
+        grabInteractable.enabled = false;
+
+        // Disable physics so we can teleport safely
         rb.isKinematic = true;
+
+        // Move the ball
         transform.position = respawnPoint.position;
+
+        // Reset motion
         rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+
+        // Check if we can safely reset angular velocity
+        if (!rb.isKinematic)
+            rb.angularVelocity = Vector3.zero;
+
+        // Re-enable physics and grabbing
         rb.isKinematic = false;
+        grabInteractable.enabled = true;
     }
 }
