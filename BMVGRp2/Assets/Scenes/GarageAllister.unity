@@ -1279,10 +1279,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< Updated upstream
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6567792210659775117, guid: 3e1265eed4c34e54692b641137a80cca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1748643403}
+=======
+    m_AddedGameObjects: []
+>>>>>>> Stashed changes
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3399664940317409996, guid: 3e1265eed4c34e54692b641137a80cca, type: 3}
       insertIndex: -1
