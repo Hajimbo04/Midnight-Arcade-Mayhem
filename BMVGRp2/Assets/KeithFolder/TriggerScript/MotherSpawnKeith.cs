@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MotherSpawnKeith : MonoBehaviour
 {
@@ -6,33 +8,29 @@ public class MotherSpawnKeith : MonoBehaviour
     public GameObject objectToMove; // The object you want to move to the hidden object's location
     public GameObject objectToUnhide; // The object you want to unhide
     public Animator motherAnimator; // Animator for the object with MotherSlap1 and MotherSlap2
-    public Animator playerAnimator; // Animator for the object with PlayerRecieveSlap
+    public Animator playerAnimator; // Animator for the object with PlayerReceiveSlap
+    public string nextSceneName; // The name of the scene to load
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the trigger is activated by the player or a specific object
-        if (other.CompareTag("Player")) // Ensure the player has the tag "Player"
+        if (other.CompareTag("Player"))
         {
-            // Hide the original object
             if (objectToHide != null)
             {
                 objectToHide.SetActive(false);
             }
 
-            // Move the specified object to the position and rotation of the hidden object
             if (objectToMove != null && objectToHide != null)
             {
                 objectToMove.transform.position = objectToHide.transform.position;
                 objectToMove.transform.rotation = objectToHide.transform.rotation;
             }
 
-            // Unhide the specified object
             if (objectToUnhide != null)
             {
                 objectToUnhide.SetActive(true);
             }
 
-            // Play animations
             if (motherAnimator != null)
             {
                 motherAnimator.Play("MotherSlap1");
@@ -42,6 +40,25 @@ public class MotherSpawnKeith : MonoBehaviour
             {
                 playerAnimator.Play("PlayerReceiveSlap");
             }
+
+            // Start the coroutine to load the scene after a delay
+            StartCoroutine(LoadSceneAfterDelay(3f));
+        }
+    }
+
+    private IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Debug.Log("3 seconds passed, attempting to load scene: " + nextSceneName);
+
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogError("Next scene name is not set.");
         }
     }
 }
