@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: d4609e8b2b25d934e8ccaf2e84c483fb
+    path: Assets/Scenes/SampleScene.unity
+    guid: 55daccc09a3b69647bbab145b54a3ab3
   - enabled: 1
-    path: Assets/Scenes/GarageHazim.unity
-    guid: 13abb12593ff7cb429c1b8a771a36bae
+    path: Assets/Scenes/GarageKeith3.unity
+    guid: 182975151f649e444b22df0c63d546aa
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1b761532e5500974688bb617d29f3071
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
