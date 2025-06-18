@@ -6,17 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 55daccc09a3b69647bbab145b54a3ab3
-  - enabled: 1
-    path: Assets/Scenes/GarageKeith3.unity
-    guid: 182975151f649e444b22df0c63d546aa
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 1b761532e5500974688bb617d29f3071
+    path: Assets/Scenes/MainMenu.unity
+    guid: d4609e8b2b25d934e8ccaf2e84c483fb
   - enabled: 1
     path: Assets/Scenes/GarageHazim.unity
     guid: 13abb12593ff7cb429c1b8a771a36bae
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1b761532e5500974688bb617d29f3071
   - enabled: 1
     path: Assets/Scenes/GameWin.unity
     guid: 0d5b18661db7d6c4483b68b1672227b1
