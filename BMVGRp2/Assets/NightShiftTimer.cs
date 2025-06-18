@@ -5,7 +5,7 @@ using TMPro;
 public class NightShiftTimer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;   // UI reference
-    private const float realSecondsPerHour = 60f;        // 1 real‑min == 1 game‑hour
+    private const float realSecondsPerHour = 20f;        // 1 real‑min == 1 game‑hour
     private readonly string[] clock = { "12AM", "1AM", "2AM",
                                         "3AM", "4AM", "5AM", "6AM" };
 
