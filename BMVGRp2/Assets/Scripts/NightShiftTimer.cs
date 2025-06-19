@@ -4,15 +4,27 @@ using TMPro;
 
 public class NightShiftTimer : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI timerText;   // UI reference
-    private const float realSecondsPerHour = 20f;        // 1 real‑min == 1 game‑hour
-    private readonly string[] clock = { "12AM", "1AM", "2AM",
-                                        "3AM", "4AM", "5AM", "6AM" };
+    private const float realSecondsPerHour = 20f; // 20s = 1 in-game hour (adjust as needed)
+    private readonly string[] clock = { "12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM" };
 
-    private float t;          // accumulates real seconds
-    private int hourIndex;    // 0 == 12 AM
+    private float t;
+    private int hourIndex;
 
-    private void Start() => UpdateDisplay();
+    private TextMeshProUGUI[] allClocks;
+
+    private void Start()
+    {
+        // Find all TMP clocks in the scene with tag "Clock"
+        GameObject[] clockObjects = GameObject.FindGameObjectsWithTag("Clock");
+
+        allClocks = new TextMeshProUGUI[clockObjects.Length];
+        for (int i = 0; i < clockObjects.Length; i++)
+        {
+            allClocks[i] = clockObjects[i].GetComponent<TextMeshProUGUI>();
+        }
+
+        UpdateDisplay();
+    }
 
     private void Update()
     {
@@ -21,12 +33,23 @@ public class NightShiftTimer : MonoBehaviour
         {
             t -= realSecondsPerHour;
             hourIndex++;
-            if (hourIndex == 6)                     // reached 6 AM
-                SceneManager.LoadScene("GameWin");  // done!
+            if (hourIndex == 6)
+            {
+                SceneManager.LoadScene("GameWin");
+            }
             else
+            {
                 UpdateDisplay();
+            }
         }
     }
 
-    private void UpdateDisplay() => timerText.text = clock[hourIndex];
+    private void UpdateDisplay()
+    {
+        foreach (var clockText in allClocks)
+        {
+            if (clockText != null)
+                clockText.text = clock[hourIndex];
+        }
+    }
 }
