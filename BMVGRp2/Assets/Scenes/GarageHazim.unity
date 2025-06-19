@@ -1705,7 +1705,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1acdf21439f254f49af195af3c9c70e3, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1acdf21439f254f49af195af3c9c70e3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
@@ -35194,6 +35194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3032429252654227661, guid: 1ced82cbcecaf1a47a01eefb42d12bf5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827327923ebb86d46a90ea7903f5b7d4, type: 2}
     - target: {fileID: 5069941754607462932, guid: 1ced82cbcecaf1a47a01eefb42d12bf5, type: 3}
       propertyPath: m_Name
       value: MotherAI
@@ -35210,6 +35214,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8291045400673805910, guid: 1ced82cbcecaf1a47a01eefb42d12bf5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 827327923ebb86d46a90ea7903f5b7d4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 234395523757834873, guid: 1ced82cbcecaf1a47a01eefb42d12bf5, type: 3}
@@ -47214,7 +47222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.222
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.z
