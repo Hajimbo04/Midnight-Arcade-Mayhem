@@ -4,7 +4,7 @@ using TMPro;
 
 public class NightShiftTimer : MonoBehaviour
 {
-    private const float realSecondsPerHour = 20f; // 20s = 1 in-game hour (adjust as needed)
+    private const float realSecondsPerHour = 120f; // 20s = 1 in-game hour (adjust as needed)
     private readonly string[] clock = { "12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM" };
 
     private float t;

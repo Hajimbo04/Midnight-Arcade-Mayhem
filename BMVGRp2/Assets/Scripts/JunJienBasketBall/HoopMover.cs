@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class HoopMover : MonoBehaviour
 {
-    public float moveRangeX = 1f;
+    public float moveRangeZ = 1f;   // ← was moveRangeX
     public float moveRangeY = 0.5f;
-    public float moveSpeed = 1.5f;
-    public Scoremanager scoreManager; // You will drag your ScoreManager object here
+    public float moveSpeed  = 1.5f;
+
+    public Scoremanager scoreManager;
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
 
     void Start()
     {
-        startPosition = transform.position;
+        startPosition  = transform.position;
         targetPosition = startPosition;
     }
 
@@ -20,33 +21,32 @@ public class HoopMover : MonoBehaviour
     {
         int score = scoreManager.currentScore;
 
-        if (score < 16)
+        if (score < 20)
         {
-            // Don't move
+            // stationary
             transform.position = startPosition;
         }
-        else if (score >= 16 && score < 30)
+        else if (score < 40)
         {
-            // Move left and right
-            float offset = Mathf.PingPong(Time.time * moveSpeed, moveRangeX * 2) - moveRangeX;
-            transform.position = startPosition + new Vector3(offset, 0f, 0f);
+            // move front ↔ back (world-Z)
+            float offset = Mathf.PingPong(Time.time * moveSpeed, moveRangeZ * 2) - moveRangeZ;
+            transform.position = startPosition + new Vector3(0f, 0f, offset);
         }
         else
         {
-            // Move randomly on X and Y
+            // random Z-and-Y wandering
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-            {
                 SetNewTargetPosition();
-            }
         }
     }
 
     void SetNewTargetPosition()
     {
-        float randomX = Random.Range(-moveRangeX, moveRangeX);
+        float randomZ = Random.Range(-moveRangeZ, moveRangeZ);
         float randomY = Random.Range(-moveRangeY, moveRangeY);
-        targetPosition = startPosition + new Vector3(randomX, randomY, 0f);
+
+        targetPosition = startPosition + new Vector3(0f, randomY, randomZ);
     }
 }
